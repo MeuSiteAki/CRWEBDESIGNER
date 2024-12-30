@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa Criadora de Sites</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        overflow-x: hidden; 
+    }
+
+    header {
+        background: #000000;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 40px;
+        transform: translateY(-100%);
+        animation: cair 2s forwards;
+        text-shadow: 10px 20px 20px blue;
+    }
+
+    @keyframes cair {
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        color: #007BFF; 
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #5BC0DE; 
+    }
+
+    section {
+        padding: 20px;
+        margin: 10px;
+        background: linear-gradient(145deg, rgb(50, 50, 255), rgb(0, 0, 61));
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px black;
+    }
+
+    .imagem-animada {
+        width: 100%;
+        max-width: 300px;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 2s ease, transform 2s ease;
+    }
+
+    .imagem-animada.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .imagem-entrando {
+        animation: entrar 5s forwards, sair 2s forwards 5s;
+    }
+
+    @keyframes entrar {
+        0% { transform: translateX(-100%); }
+        50% { transform: translateX(0); }
+        100% { transform: translateX(0); }
+    }
+
+    .botao-whatsapp {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #25D366;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .i1 {
+        width: 150px;
+        border-radius: 50%; 
+        box-shadow: 0px 10px 10px blue;
+        transform: translateY(-100%);
+        animation: cair 2s forwards;
+    }
+    
+    h2 {
+        color: white;
+        font-size: 30px;
+    }
+    
+    p {
+        color: white;
+        font-size: 20px;
+    }
+
+    .imagem-centralizada {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        
+    }
+
+    .imagem-centralizada img {
+        max-width: 90%;
+        height: auto;
+        border-radius: 70px;
+    }
+
+    @media (max-width: 360px) {
+        .imagem-centralizada img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    #contato{
+        text-align: center;
+    }
+</style>
+<body>
+    <header>
+        <h1>CARLOS ROCHA <br> WEB DESIGNER</h1>
+        <nav>
+            <img class="i1" src="logo2.png" alt="">
+            <ul><br>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#objetivo">Objetivo</a></li>
+                <li><a href="#exemplos">Exemplos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="imagem-centralizada">
+        <img class="imagem-entrando" src="Sem nome (297 x 210 mm).png" alt="">
+    </div>
+
+    <section id="sobre">
+        <h2>Sobre Nós</h2>
+        <p>Somos uma empresa dedicada a criar sites incríveis para nossos clientes.</p>
+    </section>
+
+    <section id="objetivo">
+        <h2>Nosso Objetivo</h2>
+        <p>Proporcionar a melhor experiência digital para nossos clientes.</p>
+    </section>
+
+    <section id="exemplos">
+        <h2>Exemplos de Sites Criados</h2>
+        <div class="exemplo">
+            <h3>Click nas imagens e veja os sites:</h3>
+            <a href="https://meusiteaki.github.io/AnaCamilaFestas/"><img src="pic1.png" alt="Exemplo 1" class="imagem-animada"></a>
+            <a href="https://meusiteaki.github.io/STUDIOKELMALOPES/"><img style="height: 172px;" src="pic2.png" alt="Exemplo 2" class="imagem-animada"></a>
+            <a href="https://meusiteaki.github.io/SALAOMEGASTAR/"><img style="height: 173px;" src="pic3.png" alt="Exemplo 3" class="imagem-animada"></a>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <a href="https://wa.me/5599992247544" class="botao-whatsapp">Fale Conosco no WhatsApp</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Empresa Criadora de Sites. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const imagens = document.querySelectorAll('.imagem-animada');
+            let index = 0;
+
+            function mostrarImagens() {
+                if (index < imagens.length) {
+                    imagens[index].classList.add('visible');
+                    index++;
+                    setTimeout(mostrarImagens, 2000);
+                }
+            }
+
+            mostrarImagens();
+        });
+    </script>
+</body>
+</html>
